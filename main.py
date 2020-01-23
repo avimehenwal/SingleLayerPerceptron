@@ -4,20 +4,8 @@
 Implement Single Layer Perceptron Algorithm for OR gate
 """
 
-import coloredlogs, logging
-from pandas import *
+from single_layer_perceptron import PerceptronAlgorithm
 
-
-# Create a logger object
-logger = logging.getLogger(__name__)
-coloredlogs.install(level='DEBUG', logger=logger)
-
-# Some examples.
-# logger.debug("this is a debugging message")
-# logger.info("this is an informational message")
-# logger.warning("this is a warning message")
-# logger.error("this is an error message")
-# logger.critical("this is a critical message")
 
 training_data = [
     ([1,1], True),
@@ -29,8 +17,6 @@ test_data = [
     ([1,0]),
 ]
 
-training_dataframe = DataFrame(training_data)
-test_dataframe     = DataFrame(test_data)
 
-logger.info("Training Dataset Size : {}".format(len(training_data)))
-logger.debug("Given Dataset\n{}".format(training_dataframe))
+ml_model = PerceptronAlgorithm(training_data, test_data)
+# ml_model.train()
